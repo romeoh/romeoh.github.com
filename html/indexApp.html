@@ -1,0 +1,240 @@
+<!--  Version : 2012.06.10.16 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title></title>
+<link rel="stylesheet" type="text/css" href="../css/mdi.css">
+<style type="text/css">
+</style>
+</head>
+
+<body>
+<div id="components"></div>
+<h1><img src="../img/logo_w.png" alt="LOGO"></h1>
+<nav>
+	<dl>
+		<dt>주식</dt>
+		<dd data-top="0" data-sub="0">시세</dd>
+		<dd data-top="0" data-sub="1">투자정보</dd>
+		<dd data-top="0" data-sub="2">주문</dd>
+		<dd data-top="0" data-sub="3">계좌</dd>
+		<dd data-top="0" data-sub="4">신용/대출</dd>
+		<dd data-top="0" data-sub="5">ELW</dd>
+		<dd data-top="0" data-sub="6">차트</dd>
+	</dl>
+	<dl>
+		<dt>선물옵션</dt>
+		<dd data-top="1" data-sub="0">시세</dd>
+		<dd data-top="1" data-sub="1">투자정보</dd>
+		<dd data-top="1" data-sub="2">주문</dd>
+		<dd data-top="1" data-sub="3">계좌</dd>
+		<dd data-top="1" data-sub="4">차트</dd>
+	</dl>
+</nav>
+<div class="statusBar">
+	<fieldset>
+		<legend>검색</legend>
+		<input type="text" value="화면번호">
+		<select>
+			<option>주식</option>
+		</select>
+		<ul>
+			<li><button>주식종합</button></li>
+			<li><button>주식현재가</button></li>
+			<li><button>주식주문</button></li>
+			<li><button>주식체결</button></li>
+		</ul>
+	</fieldset>
+</div>
+
+<div class="contents">
+	<button id="btn1">a</button>
+	<button id="btn2">b</button>
+</div>
+
+<footer>
+	<dl>
+		<dt>코스피</dt>
+		<dd>1.234</dd>
+		<dd>^ 12.3</dd>
+		<dd>1.23%</dd>
+	</dl>
+	<dl>
+		<dt>코스닥</dt>
+		<dd>1.234</dd>
+		<dd>^ 12.3</dd>
+		<dd>1.23%</dd>
+	</dl>
+	<dl>
+		<dt>뉴스</dt>
+		<dd data-news-idx="0"><a href="">새로운 뉴스가 등록됩니다.11</a></dd>
+		<dd data-news-idx="1"><a href="">새로운 뉴스가 등록됩니다.22</a></dd>
+		<dd data-news-idx="2"><a href="">새로운 뉴스가 등록됩니다.33</a></dd>
+	</dl>
+	<ul>
+		<li><img src="../img/btn_che.png" alt="체"></li>
+		<li><img src="../img/btn_si.png" alt="신"></li>
+		<li><img src="../img/btn_setting.png" alt="설정"></li>
+	</ul>
+</footer>
+<!--script type="text/javascript" src="../js/firebug-lite.js"></script-->
+<script type="text/javascript" src="../js/mdi.js"></script>
+<script type="text/javascript">
+
+window.addEventListener("load", initPage, false);
+function initPage(){
+	mdi.init();
+	bindMenu();
+	bindEvent();
+}
+
+function bindMenu(){
+	var nav = document.querySelector("nav");
+	var topMenu = nav.querySelectorAll("dl");
+		
+	mdi.gnb = new Array();
+	mdi.stock = new Array();
+	mdi.option = new Array();
+	
+	//주식 > 시세
+	mdi.navigator = {};
+	mdi.navigator.title = "시세";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > 투자정보
+	mdi.navigator = {};
+	mdi.navigator.title = "투자정보";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > 주문
+	mdi.navigator = {};
+	mdi.navigator.title = "주문";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > 계좌
+	mdi.navigator = {};
+	mdi.navigator.title = "계좌";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > 신용/대출
+	mdi.navigator = {};
+	mdi.navigator.title = "신용/대출";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > ELW
+	mdi.navigator = {};
+	mdi.navigator.title = "ELW";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	//주식 > 차트
+	mdi.navigator = {};
+	mdi.navigator.title = "차트";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.stock.push(mdi.navigator);
+	
+	mdi.gnb.push(mdi.stock);
+	
+	//옵션 > 시세
+	mdi.navigator = {};
+	mdi.navigator.title = "시세";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.option.push(mdi.navigator);
+	
+	//옵션 > 투자정보
+	mdi.navigator = {};
+	mdi.navigator.title = "투자정보";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.option.push(mdi.navigator);
+	
+	//옵션 > 주문
+	mdi.navigator = {};
+	mdi.navigator.title = "주문";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.option.push(mdi.navigator);
+	
+	//옵션 > 계좌
+	mdi.navigator = {};
+	mdi.navigator.title = "계좌";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.option.push(mdi.navigator);
+	
+	//주식 > 차트
+	mdi.navigator = {};
+	mdi.navigator.title = "차트";
+	mdi.navigator.url = "content0.html";
+	mdi.navigator.width = "500";
+	mdi.navigator.height = "300";
+	mdi.option.push(mdi.navigator);
+	
+	mdi.gnb.push(mdi.option);
+	//console.log(mdi.gnb)
+}
+
+//navigation menu
+function bindEvent(){
+	var subMenu = document.querySelectorAll("[data-top]");
+	for(var i=0; i<subMenu.length; i++){
+		subMenu[i].addEventListener("click", function(){
+			menuTop = this.getAttribute("data-top");
+			menuSub = this.getAttribute("data-sub");
+			mdi.showSubMenu(this, menuTop, menuSub);
+		}, false)
+	}
+}
+
+
+
+
+
+
+
+
+var btn1 = document.querySelector("#btn1");
+var btn2 = document.querySelector("#btn2");
+
+btn1.addEventListener("click", function(){
+	mdi.createWindow("content0.html", "[2000]주식종합", 1000, 600);
+	//mdi.tween(btn2, {left:100, onFinish:"a"})
+}, false);
+
+
+btn2.addEventListener("click", function(){
+	mdi.createWindow("content0.html", "창제목", 700, 200);
+}, false);
+
+function a(){
+	alert("a")
+}
+</script>
+</body>
+</html>

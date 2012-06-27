@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"/>  
+<title></title>
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+
+<!--div id="ediv" style="border:1px solid #000; width:100px; height:100px">
+	<span id="espan">ㅌㅌㅌㅌㅌㅌㅌㅌ</span>
+</div-->
+<div id="div1" style="width:100px; height:100px; border:1px solid #000;">
+	<div id="div2" style="width:80px; height:80px; border:1px solid #000;">
+		<div id="div3" style="width:50px; height:50px; border:1px solid #000;"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+
+var div1 = document.querySelector("#div1");
+var div2 = document.querySelector("#div2");
+var div3 = document.querySelector("#div3");
+
+div1.addEventListener("click", onclick1, true)
+div2.addEventListener("click", onclick2, false)
+div3.addEventListener("click", onclick3, false)
+
+function onclick1(evt){
+	evt.stopPropagation();
+	evt.preventDefault();
+	console.log("div1: "+evt.target.id);
+}
+
+function onclick2(evt){
+	console.log("div2")
+}
+
+function onclick3(evt){
+	console.log("div3")
+}
+
+
+
+/*ediv.addEventListener("mousedown", onDown, true);
+
+function onDown(e){
+	e.stopPropagation();
+	//e.preventDefault();
+	ediv.addEventListener("mousemove", onMove, false);
+	ediv.addEventListener("mouseup", onUp, false);
+	console.log(e.target)
+}
+function onMove(e){
+	console.log("move")
+}
+function onUp(e){
+	console.log("up")
+	ediv.removeEventListener("mousemove", onMove, false);
+	ediv.removeEventListener("mouseup", onUp, false);
+}
+*/
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

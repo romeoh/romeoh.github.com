@@ -1,0 +1,214 @@
+<!--  Version : 2012.06.10.16 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"/>  
+<title></title>
+<style type="text/css">
+.sectionTop {}
+.sectionTop .leftSection {width:50%; float:left}
+.sectionTop .leftSection table {border-collapse:collapse;}
+.sectionTop .leftSection table th {border:1px solid #000}
+.sectionTop .leftSection table td {border:1px solid #000}
+
+.sectionTop .rightSection {width:50%; float:right}
+.sectionTop .rightSection ul {z-index:100; position:relative}
+.sectionTop .rightSection ul li.selected {background:#ccc}
+.sectionTop .rightSection ul li {float:left; border:1px solid #000; list-style:none; padding:5px 10px; cursor:pointer}
+.sectionTop .rightSection .deal {position:relative}
+.sectionTop .rightSection .deal table {border-collapse:collapse; width:100%}
+.sectionTop .rightSection .deal table th {}
+.sectionTop .rightSection .deal table td {}
+.sectionTop .rightSection .deal .submit {border:1px solid #000; width:100px; height:100px; position:absolute; bottom:0; right:0}
+
+.sectionBottom {width:100%; overflow:scroll; border:1px solid #000; height:200px}
+.sectionBottom table {width:100%; border-collapse:collapse}
+.sectionBottom table th {border:1px solid #000}
+.sectionBottom table td {border:1px solid #000}
+</style>
+</head>
+
+<body>
+
+<div class="sectionTop">
+	<div class="leftSection">
+		<div>
+			<input type="search"> <h2>삼성전자</h2>
+		</div>
+		<table style="border:1px solid #000">
+			<thead>
+			<tr>
+				<th>증감</th>
+				<th>매도잔량</th>
+				<th>15:26:20</th>
+				<th>매수잔량</th>
+				<th>증감</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1,000,000</td>
+				<td>1,000,000</td>
+				<td>1,000,000</td>
+				<td>1,000,000</td>
+				<td>1,000,000</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="rightSection">
+		<ul>
+			<li id="btnDeal0" class="selected">매도</li>
+			<li id="btnDeal1">매수</li>
+			<li id="btnDeal2">정정</li>
+			<li id="btnDeal3">취소</li>
+		</ul>
+		
+		<div class="deal" id="deal0">
+			<table>
+				<tbody>
+				<tr>
+					<th>계좌</th>
+					<td>
+						<select>
+							<option>1000-000-000</option>
+						</select>
+						<input type="text" placeholder="성명">
+						비번
+						<input type="password" placeholder="비번">
+					</td>
+				</tr>
+				<tr>
+					<th>종목</th>
+					<td>
+						<select>
+							<option>1000</option>
+						</select>
+						<button>?</button>
+						<input type="text" value="삼성전자">
+						<span>증 40</span>
+					</td>
+				</tr>
+				<tr>
+					<th>구분</th>
+					<td>
+						<select>
+							<option>지정가</option>
+						</select>
+						<input type="checkbox"> 시장가
+						<input type="radio"> 현금
+						<input type="radio"> 신용
+					</td>
+				</tr>
+				<tr>
+					<th>조건</th>
+					<td>
+						<select>
+							<option>없음</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>수량</th>
+					<td>
+						<input type="number"> <button>가능</button>
+					</td>
+				</tr>
+				<tr>
+					<th>단가</th>
+					<td><input type="number"></td>
+				</tr>
+				</tbody>
+			</table>
+			<button class="submit">현금매도</button>
+		</div>
+		
+		<div class="deal" id="deal1">
+			
+		</div>
+		
+		<div class="deal" id="deal2">
+			
+		</div>
+		
+		<div class="deal" id="deal3">
+			
+		</div>
+	</div>
+</div>
+
+<div class="sectionBottom">
+	<table>
+		<thead>
+		<tr>
+			<th>시간</th>
+			<th>체결가</th>
+			<th>대비</th>
+			<th>등락률</th>
+			<th>체결량</th>
+			<th>체결강도</th>
+			<th>거래량</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>12:12:12</td>
+			<td>1,000,000</td>
+			<td>12,000</td>
+			<td>-80.0</td>
+			<td>20</td>
+			<td>71.2</td>
+			<td>800,000</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
+
+for(var i=0; i<4; i++){
+	document.querySelector("#btnDeal"+i).addEventListener("click", viewDeal, false);
+}
+
+function viewDeal(e){
+	for(var i=0; i<4; i++){
+		document.querySelector("#btnDeal"+i).className = "";
+		document.querySelector("#deal"+i).style.display = "none";
+	}
+	var selIdx = e.target.id.substr(7)
+	e.target.className = "selected";
+	document.querySelector("#deal"+selIdx).style.display = "block";
+}
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

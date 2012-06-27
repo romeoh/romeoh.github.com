@@ -1,0 +1,110 @@
+/************************************************************************
+ mdi.css
+ CSS for Multiple Document Interface
+ Author : romeoh (romeoh@naver.com)
+ Version : 2012.06.10.16
+ Copyright (c) 2012 romeoh
+ ************************************************************************/
+
+@charset "utf-8";
+
+/* reset */
+html,body {height:100%;}
+body {font:.85em/120% AppleGothic, Trebuchet MS, Verdana, Arial, Helvetica, sans-serif; color:#666; -webkit-user-select:none; -webkit-text-size-adjust:none; overflow:hidden; -webkit-tap-highlight-color:transparent; margin:0}
+img, fieldset {border: 0;}
+ul, ol {padding:0;line-height:120%; list-style:none;}
+iframe {border:0; z-index:0}
+
+/* component */
+#component {position:absolute; display:none}
+#components .mdiWindow {position:absolute; background:#fff; overflow:hidden}
+#components .mdiWindow iframe {border:1px solid #bebebe; border-top:none}
+#components .mdiWindow .titleBar {background:#4ca8f4; border-top:3px solid #7cc4ff; padding:6px 7px; cursor:move}
+#components .mdiWindow .titleBar span {color:#fff; font-weight:bold}
+#components .mdiWindow .btnMini {float:right; width:20px; height:20px;}
+#components .mdiWindow .btnClose {float:right; width:20px; height:20px;}
+#components .statusWindow {position:absolute; z-index:1000; bottom:50px; left:0; border:3px solid #666; -webkit-border-radius:10px; width:145px; height:20px; margin-left:5px; padding:5px; overflow:hidden; background:#fff}
+#components .activeWindow {background:#bbb}
+
+/* header */
+h1 {position:absolute; top:0px; left:10px; margin:3px 0 0 14px}
+nav {border-top:1px solid #4ca8f4; height:37px;
+	background-image: linear-gradient(bottom, rgb(16,143,246) 50%, rgb(50,159,247) 50%, rgb(143,202,251) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(16,143,246) 50%, rgb(50,159,247) 50%, rgb(143,202,251) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(16,143,246) 50%, rgb(50,159,247) 50%, rgb(143,202,251) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(16,143,246) 50%, rgb(50,159,247) 50%, rgb(143,202,251) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(16,143,246) 50%, rgb(50,159,247) 50%, rgb(143,202,251) 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top,color-stop(0.5, rgb(16,143,246)),color-stop(0.5, rgb(50,159,247)),color-stop(1, rgb(143,202,251)));
+}
+nav dl {position:absolute; top:0px; color:#fff; margin:13px 0}
+nav dl dt {float:left; background:url(../img/bullet_arrow.png) no-repeat right; padding:0 14px 0 0; margin:0}
+nav dl dd {float:left; padding:0 8px; margin:0; cursor:pointer}
+nav dl:first-child {left:80px}
+nav dl:last-child {left:550px}
+
+nav dl dd div.popover {position:absolute; border:7px solid #0c1a35; top:35px; -webkit-border-radius:10px; -webkit-box-shadow:0px 0px 10px #000; min-width:150px; background:#fff; }
+nav dl dd div.popover p {color:#000; border-bottom:1px solid #999; padding:5px; margin:0}
+nav dl dd div.popover div {position:absolute; top:-25px; left:0px; width:35px; height:18px; background:url(../img/arrow_popover_down.png) no-repeat}
+
+
+/* statusBar */
+div.statusBar {background:#3b3b3b}
+div.statusBar fieldset {}
+div.statusBar fieldset legend {display:none}
+div.statusBar fieldset input {width:100px; height:32px; padding-left:50px; border-radius:10px; border:none; float:left; margin-right:5px;
+	background-image: linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.02, rgb(218,218,218)), color-stop(1, rgb(250,250,250)));
+	background-image: url(../img/ico_search.png); background-repeat:no-repeat; background-position:15px 7px;
+	box-shadow: inset 2px 2px 20px #888;
+}
+div.statusBar fieldset select {float:left; width:100px; height:32px; border-radius:10px; border:none; margin-right:20px;
+	background-image: linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(218,218,218) 2%, rgb(250,250,250) 100%);
+	
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.02, rgb(218,218,218)), color-stop(1, rgb(250,250,250)));
+	box-shadow: inset 2px 2px 20px #888;
+}
+div.statusBar fieldset ul {margin:0}
+div.statusBar fieldset ul li {float:left}
+div.statusBar fieldset ul li button {padding:0; border:0; width:97px; height:34px; text-indent:-1000px}
+div.statusBar fieldset ul li:nth-child(1) button {background:url(../img/ico_btn0.png) no-repeat}
+div.statusBar fieldset ul li:nth-child(2) button {background:url(../img/ico_btn1.png) no-repeat; width:113px}
+div.statusBar fieldset ul li:nth-child(3) button {background:url(../img/ico_btn2.png) no-repeat}
+div.statusBar fieldset ul li:nth-child(4) button {background:url(../img/ico_btn3.png) no-repeat}
+
+/* footer */
+footer {position:fixed; bottom:0; width:100%; background:#242424}
+footer dl:nth-child(1) {margin:3px 0}
+footer dl:nth-child(1) dt {float:left; background:#161615; padding:10px 19px}
+footer dl:nth-child(1) dd {float:left; margin:0; background:#272827; padding:10px 5px}
+footer dl:nth-child(1) dd:nth-child(1) {}
+footer dl:nth-child(1) dd:nth-child(2) {}
+footer dl:nth-child(1) dd:nth-child(3) {}
+
+footer dl:nth-child(2) {margin:3px 0}
+footer dl:nth-child(2) dt {float:left; background:#161615; padding:10px 19px}
+footer dl:nth-child(2) dd {float:left; margin:0; background:#272827; padding:10px 5px}
+footer dl:nth-child(2) dd:nth-child(1) {}
+footer dl:nth-child(2) dd:nth-child(2) {}
+footer dl:nth-child(2) dd:nth-child(3) {}
+
+footer dl:nth-child(3) {position:relative; float:right; margin:10px 0; margin-right:110px; overflow:hidden; width:256px; height:20px}
+footer dl:nth-child(3) dt {float:left}
+footer dl:nth-child(3) dd {margin:0; clear:both; margin-left:50px; position:absolute; top:30px}
+footer dl:nth-child(3) dd:nth-child(2) {top:0px}
+footer dl:nth-child(3) dd a {color:#666}
+footer dl:nth-child(3) dd:nth-child(1) {}
+footer dl:nth-child(3) dd:nth-child(2) {}
+footer dl:nth-child(3) dd:nth-child(3) {}
+
+footer ul:nth-child(4) {position:absolute; right:0}
+footer ul:nth-child(4) li {float:left}
+footer ul:nth-child(4) li button {}
