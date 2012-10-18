@@ -17,28 +17,38 @@ https://apis.daum.net/register/myapi.daum 에서 key등록후 사용하세요.
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript">
 
-window.onload = function() {
-	navigator.geolocation.getCurrentPosition(onPositionUpdate);
-	function onPositionUpdate(position){
-		var lat = position.coords.latitude;
-		var lng = position.coords.longitude;
+window.addEventListener("load", initMap, false);
 
+function initMap(){
+	navigator.geolocation.getCurrentPosition(onPositionUpdate);
+	
+	function onPositionUpdate(position){
+		var lat = position.coords.latitude;		//위도
+		var lng = position.coords.longitude;	//경도
+		
+		//좌표설정
 		var position = new daum.maps.LatLng(lat, lng);
+		
+		//지도 생성
 		var map = new daum.maps.Map(document.getElementById('map'), {
 			center: position,
 			level: 4,
 			mapTypeId: daum.maps.MapTypeId.HYBRID
 		});
+		
+		//마커 설정
 		var marker = new daum.maps.Marker({
 			position: position
 		});
 		marker.setMap(map);
+		
+		//문구 설정
 		var infowindow = new daum.maps.InfoWindow({
 			content: 'Hello, Morpheus!'
 		});
 		infowindow.open(map, marker);
 	}
-};
+}
 
 </script>
 </body>
