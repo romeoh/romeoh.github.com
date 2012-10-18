@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title></title>
+<style>
+#map {width:320px; height:480px}
+</style>
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=a3da9cb38e6f3e983247d85d60261f8a74dfd796"></script>
+</head>
+<body>
+<div id="map"></div>
+<pre>
+https://apis.daum.net/register/myapi.daum 에서 key등록후 사용하세요.
+</pre>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript">
+
+window.onload = function() {
+	navigator.geolocation.getCurrentPosition(onPositionUpdate);
+	function onPositionUpdate(position){
+		var lat = position.coords.latitude;
+		var lng = position.coords.longitude;
+
+		var position = new daum.maps.LatLng(lat, lng);
+		var map = new daum.maps.Map(document.getElementById('map'), {
+			center: position,
+			level: 4,
+			mapTypeId: daum.maps.MapTypeId.HYBRID
+		});
+		var marker = new daum.maps.Marker({
+			position: position
+		});
+		marker.setMap(map);
+		var infowindow = new daum.maps.InfoWindow({
+			content: 'Hello, Morpheus!'
+		});
+		infowindow.open(map, marker);
+	}
+};
+
+</script>
+</body>
+</html>
