@@ -4,5 +4,7 @@
 
 네이버맵 : http://romeoh.github.com/naverMaps/
 
+구글맵 : http://romeoh.github.com/googleMaps/
+
 
  
