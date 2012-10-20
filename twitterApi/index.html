@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+
+</style>
+</head>
+<body>
+
+<button type="button" id="btnUser">사용자 이름</button>
+<button type="button" id="btnLogin">트위터에 로그인</button>
+<button type="button" id="btnLogout">트위터에 로그아웃</button>
+<button type="button" id="btnIsConnect">접속상태보기</button>
+<button type="button" id="btnRequireConnect">연결 여부 확인</button>
+<button type="button" id="btnHovercards">호버카드 생성</button>
+<button type="button" id="btnTweetbox">트윗박스</button>
+<button type="button" id="btnConnectButton">트위터 연결 버튼 생성</button>
+<button type="button" id="btnFollowButton">팔로우 버튼 생성</button>
+<button type="button" id="btnBind">Bind Event</button>
+<button type="button" id="btnUpdate">글쓰기</button>
+
+<button type="button" id="btnTest">test</button>
+<div id="msg"></div>
+
+<pre>
+https://dev.twitter.com/apps 에서 키 등록후 사용하세요.
+</pre>
+
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
+<script type="text/javascript">
+
+window.addEventListener("load", init, false);
+
+function init(){
+	var  msg = document.querySelector("#msg")
+		,screenName
+		,profile
+
+	document.querySelector("#btnLogout").onclick = function(){
+		twttr.anywhere.signOut();
+	}
+
+	twttr.anywhere(function(T){
+
+		if(T.isConnected()){
+			screenName = T.currentUser.data('screen_name');
+			profile = T.currentUser.data('profile_image_url')
+		}
+
+		document.querySelector("#btnTest").onclick = function(){
+			//T.Status.notifications();
+			console.log(T.currentUser.data('screen_name'))
+		}
+
+		document.querySelector("#btnUser").onclick = function(){
+			msg.innerHTML = "ID: " + screenName + " - profile :<img src='" + profile + "'>";
+		}
+		document.querySelector("#btnLogin").onclick = function(){
+			T.signIn();
+		}
+		document.querySelector("#btnIsConnect").onclick = function(){
+			msg.innerHTML = T.isConnected();
+		}
+		document.querySelector("#btnRequireConnect").onclick = function(){
+			msg.innerHTML = T.requireConnect();
+		}
+		document.querySelector("#btnHovercards").onclick = function(){
+			msg.innerHTML = T.hovercards();
+		}
+		document.querySelector("#btnTweetbox").onclick = function(){
+			T("#msg").tweetBox();
+		}
+		document.querySelector("#btnConnectButton").onclick = function(){
+			T("#msg").connectButton();
+		}
+		document.querySelector("#btnFollowButton").onclick = function(){
+			T("#msg").followButton("twitterapi");
+		}
+		document.querySelector("#btnBind").onclick = function(){
+			T.bind("signOut", function (e) {
+				msg.innerHTML = "로그아웃 되었습니다.";
+			});
+		}
+		document.querySelector("#btnUpdate").onclick = function(){
+			T.Status.update("Hello world", {
+				success: function(){
+					msg.innerHTML = "글쓰기 성공";
+				},
+				error: function(e){
+					msg.innerHTML = JSON.stringify(e)+ ": 글쓰기 실패";
+				}
+			});	
+		}
+	});
+}
+
+</script>
+</body>
+</html>
