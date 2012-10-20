@@ -10,7 +10,6 @@
 <body>
 
 <button type="button" id="btnLogin">트위터에 로그인</button>
-<button type="button" id="btnLogout">트위터에 로그아웃</button>
 <button type="button" id="btnUser">사용자 이름 불러오기</button>
 <button type="button" id="btnIsConnect">접속상태보기</button>
 <button type="button" id="btnRequireConnect">연결 여부 확인</button>
@@ -20,8 +19,9 @@
 <button type="button" id="btnFollowButton">팔로우 버튼 생성</button>
 <button type="button" id="btnBind">Bind Event</button>
 <button type="button" id="btnUpdate">글쓰기</button>
-
 <button type="button" id="btnTest">test</button>
+<button type="button" id="btnLogout">트위터에 로그아웃</button>
+
 <div id="msg"></div>
 
 <pre>
@@ -40,11 +40,6 @@ function init(){
 		,screenName
 		,profile
 	
-	//트위터에 로그아웃
-	document.querySelector("#btnLogout").onclick = function(){
-		twttr.anywhere.signOut();
-	}
-
 	twttr.anywhere(function(T){
 
 		if(T.isConnected()){
@@ -117,6 +112,11 @@ function init(){
 			console.log(T.currentUser.data('screen_name'))
 		}
 	});
+	
+	//트위터에 로그아웃
+	document.querySelector("#btnLogout").onclick = function(){
+		twttr.anywhere.signOut();
+	}
 }
 
 </script>
