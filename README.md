@@ -8,5 +8,10 @@
 
 카메라 제어 : http://romeoh.github.com/getUserMedia/
 
+Twitter API : http://romeoh.github.com/twitterApi/
+
+Facebook API : http://romeoh.github.com/facebookApi/
+
+
 
  
