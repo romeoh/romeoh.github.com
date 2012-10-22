@@ -10,11 +10,11 @@
 <body>
 
 <button id="btnLogin">로그인</button>
-<button id="btnLogout">로그아웃</button>
 <button id="btnGetStatus">Status정보</button>
 <button id="btnUser">회원정보</button>
-
 <button id="btnTest">테스트</button>
+<button id="btnLogout">로그아웃</button>
+
 <div id="msg"></div>
 <div id="fb-root"></div>
 
@@ -27,6 +27,8 @@ https://developers.facebook.com/apps 에서 키 등록후 사용하세요.
 
 var msg = document.querySelector("#msg")
 window.fbAsyncInit = function(){
+	
+	// 정보 설정
 	FB.init({
 		appId      : '397951356944916', // App ID
 		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
@@ -34,13 +36,8 @@ window.fbAsyncInit = function(){
 		cookie     : true, // enable cookies to allow the server to access the session
 		xfbml      : true  // parse XFBML
 	});
-
-	document.querySelector("#btnTest").onclick = function(){
-		FB.api('/platform/posts', { limit: 5 }, function(response) {
-
-		})
-	}
-
+	
+	// 로그인
 	document.querySelector("#btnLogin").onclick = function(){
 		FB.login(function(response) {
 			if (response.authResponse) {
@@ -50,13 +47,8 @@ window.fbAsyncInit = function(){
 			}
 		});
 	}
-
-	document.querySelector("#btnLogout").onclick = function(){
-		FB.logout(function(response) {
-			msg.innerHTML = "로그아웃됨";
-		});
-	}
-
+	
+	// 로그인 상태정보
 	document.querySelector("#btnGetStatus").onclick = function(){
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
@@ -66,7 +58,8 @@ window.fbAsyncInit = function(){
 			}
 		});
 	}
-
+	
+	// 회원정보 
 	document.querySelector("#btnUser").onclick = function(){
 		FB.api('/me', function(response) {
 			msg.innerHTML = ""
@@ -74,6 +67,20 @@ window.fbAsyncInit = function(){
 			msg.innerHTML += "<br>성별: "+response.gender
 			msg.innerHTML += "<br>링크: <a href='"+response.link+"' target='_blank'>"+response.link+"</a>"
 			console.log(response)
+		});
+	}
+	
+	//테스트 버튼
+	document.querySelector("#btnTest").onclick = function(){
+		FB.api('/platform/posts', { limit: 5 }, function(response) {
+
+		})
+	}
+
+	//로그아웃
+	document.querySelector("#btnLogout").onclick = function(){
+		FB.logout(function(response) {
+			msg.innerHTML = "로그아웃됨";
 		});
 	}
 };
