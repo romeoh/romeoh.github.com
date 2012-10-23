@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Morpheus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<style type="text/css">
+.wrapper {position:relative; width:300px; height:200px; border:1px solid #000}
+p {background:yellow; padding:50px 0; margin:0; border-bottom:1px solid blue}
+h1 {font-size:14px; margin-bottom:0}
+</style>
+</head>
+
+<body>
+
+<h1>iscroll해제, 새로생성, 높이 새로고침</h1>
+<div id="wrapper" class="wrapper">
+	<div id="scroll">
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+	</div>
+</div>
+<button id="btnDestroy">iscroll 해제하기</button>
+<button id="btnInit">iscroll 재설정</button>
+<button id="btnRefresh">iscroll 새로고침</button>
+
+<script type="text/javascript" src="iscroll.js"></script>
+<script type="text/javascript">
+
+//iscroll해제, 새로생성, 높이 새로고침
+var iscroll;
+function loaded(){
+	iscroll = new iScroll("wrapper");
+}
+document.addEventListener('DOMContentLoaded', loaded, false);
+
+
+var btnDestroy = document.querySelector("#btnDestroy");
+var btnInit = document.querySelector("#btnInit");
+var btnRefresh = document.querySelector("#btnRefresh");
+var scroll = document.querySelector("#scroll");
+
+//iscroll해제
+btnDestroy.addEventListener("click", function(){
+	iscroll.destroy();
+	iscroll = null;
+}, false);
+
+//새로생성
+btnInit.addEventListener("click", function(){
+	if(iscroll == null){
+		iscroll = new iScroll("wrapper");
+	}
+}, false);
+
+//높이 새로고침
+btnRefresh.addEventListener("click", function(){
+	for(var i=0; i<5; i++){
+		scroll.innerHTML += "<p>컨텐츠</p>";
+	}
+	iscroll.refresh();
+}, false);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

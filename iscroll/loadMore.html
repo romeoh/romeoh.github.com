@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Morpheus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<style type="text/css">
+.wrapper {position:relative; width:300px; height:200px; border:1px solid #000}
+ul {padding:0; margin:0}
+p, li {background:yellow; padding:50px 0; margin:0; border-bottom:1px solid blue; list-style:none}
+h1 {font-size:14px; margin-bottom:0}
+</style>
+</head>
+
+<body>
+
+<h1>밀어서 컨텐츠 더보기 구현</h1>
+<div id="wrapper" class="wrapper">
+	<div>
+		<ul id="thelist">
+			<li>컨텐츠</li>
+			<li>컨텐츠</li>
+			<li>컨텐츠</li>
+			<li>컨텐츠</li>
+		</ul>
+		<div id="moreMsg">화면을 위로 밀면 업데이트 됩니다.</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="iscroll.js"></script>
+<script type="text/javascript">
+
+//밀어서 컨텐츠 더보기 구현
+var iscroll
+function loaded(){
+	var isLoadMore = false;
+	iscroll = new iScroll("wrapper", {
+		onRefresh: function () {
+			document.querySelector('#moreMsg').innerHTML = '화면을 위로 밀면 업데이트 됩니다.';
+		},
+		onScrollMove: function () {
+			if(this.y < (this.maxScrollY - 10)){
+				document.querySelector('#moreMsg').innerHTML = '손을 놓으면 업데이트 됩니다.';
+				isLoadMore = true;
+			}
+		},
+		onScrollEnd: function () {
+			if(isLoadMore){
+				document.querySelector('#moreMsg').innerHTML = '불러오는 중';
+				loadMoreData();
+				isLoadMore = false;
+			}
+			
+		}
+	});
+}
+document.addEventListener('DOMContentLoaded', loaded, false)
+
+function loadMoreData(){
+	setTimeout(function () {
+		el = document.querySelector("#thelist");
+
+		for (var i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = "컨텐츠 더보기";
+			el.appendChild(li, el.childNodes[0]);
+		}
+		
+		iscroll.refresh();
+	}, 1000);
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
