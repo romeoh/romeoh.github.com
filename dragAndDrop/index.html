@@ -33,7 +33,7 @@ window.addEventListener("drop", function(e){
 		reader = new FileReader();
 	
 	reader.onload = function (event) {
-		document.querySelector("#imgEl").setAttribute("src",  e.target.result);
+		document.querySelector("#imgEl").setAttribute("src",  event.target.result);
 	};
 	reader.readAsDataURL(file);
 }, false);
