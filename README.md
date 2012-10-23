@@ -12,6 +12,10 @@ Twitter API : http://romeoh.github.com/twitterApi/
 
 Facebook API : http://romeoh.github.com/facebookApi/
 
+sns API : http://romeoh.github.com/snsApi/
+
+drag&drop API : http://romeoh.github.com/dragAndDrop/
+
 
 
  
