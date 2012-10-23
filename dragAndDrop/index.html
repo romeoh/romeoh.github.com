@@ -29,7 +29,8 @@ window.addEventListener("dragleave", function(e){
 // 사진을 브라우저 위에 드롭
 window.addEventListener("drop", function(e){
 	event.preventDefault();
-	var reader = new FileReader();
+	var file = e.dataTransfer.files[0],
+		reader = new FileReader();
 	
 	reader.onload = function (event) {
 		document.querySelector("#imgEl").setAttribute("src",  event.target.result)
