@@ -19,24 +19,24 @@ window.addEventListener("dragenter", function(){
 // 사진이 브라우저 위에 있음
 window.addEventListener("dragover", function(){
 	console.log("dragover");
-}, false)
+}, false);
 
 // 사진을 브라우저 밖으로 드래그
 window.addEventListener("dragleave", function(e){
-	console.log("dragleave")
-}, false)
+	console.log("dragleave");
+}, false);
 
 // 사진을 브라우저 위에 드롭
 window.addEventListener("drop", function(e){
-	event.preventDefault();
+	e.preventDefault();
 	var file = e.dataTransfer.files[0],
 		reader = new FileReader();
 	
 	reader.onload = function (event) {
-		document.querySelector("#imgEl").setAttribute("src",  event.target.result)
+		document.querySelector("#imgEl").setAttribute("src",  e.target.result);
 	};
 	reader.readAsDataURL(file);
-}, false)
+}, false);
 
 </script>
 </body>
