@@ -11,25 +11,16 @@
 
 <script type="text/javascript">
 
-window.addEventListener("load", init, false);
-
-function init(){
-	console.log(localStorage)
-}
-
-
 document.querySelector("#save").addEventListener("click", saveData, false);
-document.querySelector("load").addEventListener("click", loadData, false);
+document.querySelector("#load").addEventListener("click", loadData, false);
 
 function saveData(){
 	localStorage.setItem("item", "hello world");
 }
 
 function loadData(){
-	return localStorage.getItem("item");
+	console.log( localStorage.getItem("item") );
 }
-
-
 
 </script>
 
