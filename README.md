@@ -16,6 +16,10 @@ sns API : http://romeoh.github.com/snsApi/
 
 drag&drop API : http://romeoh.github.com/dragAndDrop/
 
+localStorage API : http://romeoh.github.com/localStorage/
+
+iscroll API : http://romeoh.github.com/iscroll/
+
 
 
  
