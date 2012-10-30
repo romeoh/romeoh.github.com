@@ -2,8 +2,8 @@ CACHE MANIFEST
 # 2012-06-20 v1.09
 
 CACHE:
-/mobileweb/user/romeoh/applicationCache/demo.js
-/mobileweb/user/romeoh/applicationCache/appstore.png
+/applicationCache/demo.js
+/applicationCache/appstore.png
  
 NETWORK:
 *
