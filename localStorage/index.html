@@ -8,7 +8,9 @@
 
 <button id="save">로컬저장소에 저장하기</button>
 <button id="load">로컬저장소에서 불러오기</button>
+<div id="msg"></div>
 
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
 <script type="text/javascript">
 
 document.querySelector("#save").addEventListener("click", saveData, false);
@@ -22,6 +24,11 @@ function loadData(){
 	console.log( localStorage.getItem("item") );
 }
 
+window.addEventListener('load', function(e) {
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}, false);
 </script>
 
 <script type="text/javascript">
