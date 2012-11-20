@@ -22,8 +22,16 @@
 	<li><a href="destroy.html">iscroll해제, 새로생성, 높이 새로고침</a></li>
 	<li><a href="loadMore.html">밀어서 컨텐츠 더보기 구현</a></li>
 </ul>
+<div id="msg"></div>
 
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
 <script type="text/javascript">
+window.addEventListener('load', function(e) {
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}, false);
+
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-35689154-1']);
 _gaq.push(['_trackPageview']);

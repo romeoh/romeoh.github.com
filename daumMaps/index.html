@@ -14,6 +14,10 @@
 <pre>
 https://apis.daum.net/register/myapi.daum 에서 key등록후 사용하세요.
 </pre>
+<div id="msg"></div>
+
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
+
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript">
 
@@ -48,6 +52,9 @@ function initMap(){
 		});
 		infowindow.open(map, marker);
 	}
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
 }
 
 </script>
