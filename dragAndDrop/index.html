@@ -8,9 +8,7 @@
 <body>
 <img id="imgEl" src="" alt="">
 <p>사진을 브라우저 내부로 드래그 해보세요.</p>
-<div id="msg"></div>
 
-<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
 <script type="text/javascript">
 
 // 사진을 브라우저 안으로 드래그
@@ -40,12 +38,6 @@ window.addEventListener("drop", function(e){
 	reader.readAsDataURL(file);
 }, false);
 
-
-window.addEventListener('load', function(e) {
-	twttr.anywhere(function(T){
-		T("#msg").followButton("romeohcom");
-	});
-}, false);
 </script>
 
 <script type="text/javascript">
