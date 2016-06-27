@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* test */
+google_ad_slot = "6764832967";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<hr>
+
+<button id="save">로컬저장소에 저장하기</button>
+<button id="load">로컬저장소에서 불러오기</button>
+<div id="msg"></div>
+
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
+<script type="text/javascript">
+
+document.querySelector("#save").addEventListener("click", saveData, false);
+document.querySelector("#load").addEventListener("click", loadData, false);
+
+function saveData(){
+	localStorage.setItem("item", "hello world");
+}
+
+function loadData(){
+	console.log( localStorage.getItem("item") );
+}
+
+window.addEventListener('load', function(e) {
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}, false);
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35689154-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

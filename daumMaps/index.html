@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title></title>
+<style>
+#map {width:320px; height:480px}
+</style>
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=5d62102f392e93a5d0f848c43f95d1f1d7f9709e"></script>
+</head>
+<body>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* test */
+google_ad_slot = "6764832967";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<div id="map"></div>
+<pre>
+https://apis.daum.net/register/myapi.daum 에서 key등록후 사용하세요.
+</pre>
+<div id="msg"></div>
+
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
+<script type="text/javascript">
+
+window.addEventListener("load", initMap, false);
+
+function initMap(){
+	navigator.geolocation.getCurrentPosition(onPositionUpdate);
+	
+	function onPositionUpdate(position){
+		var lat = position.coords.latitude;		//위도
+		var lng = position.coords.longitude;	//경도
+		
+		//좌표설정
+		var position = new daum.maps.LatLng(lat, lng);
+		
+		//지도 생성
+		var map = new daum.maps.Map(document.getElementById('map'), {
+			center: position,
+			level: 4,
+			mapTypeId: daum.maps.MapTypeId.HYBRID
+		});
+		
+		//마커 설정
+		var marker = new daum.maps.Marker({
+			position: position
+		});
+		marker.setMap(map);
+		
+		//문구 설정
+		var infowindow = new daum.maps.InfoWindow({
+			content: 'Hello, Morpheus!'
+		});
+		infowindow.open(map, marker);
+	}
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}
+
+</script>
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35689154-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

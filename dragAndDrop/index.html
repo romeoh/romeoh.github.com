@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* test */
+google_ad_slot = "6764832967";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<img id="imgEl" src="" alt="">
+<p>사진을 브라우저 내부로 드래그 해보세요.</p>
+<div id="msg"></div>
+
+<script src="http://platform.twitter.com/anywhere.js?id=k5Fgm4eo4IoWbtgX0g&v=1"></script>
+<script type="text/javascript">
+
+// 사진을 브라우저 안으로 드래그
+window.addEventListener("dragenter", function(){
+	console.log("dragenter");
+}, false);
+
+// 사진이 브라우저 위에 있음
+window.addEventListener("dragover", function(){
+	console.log("dragover");
+}, false);
+
+// 사진을 브라우저 밖으로 드래그
+window.addEventListener("dragleave", function(e){
+	console.log("dragleave");
+}, false);
+
+// 사진을 브라우저 위에 드롭
+window.addEventListener("drop", function(e){
+	e.preventDefault();
+	var file = e.dataTransfer.files[0],
+		reader = new FileReader();
+	
+	reader.onload = function (event) {
+		document.querySelector("#imgEl").setAttribute("src",  event.target.result);
+	};
+	reader.readAsDataURL(file);
+}, false);
+
+
+window.addEventListener('load', function(e) {
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}, false);
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35689154-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
+
+
+

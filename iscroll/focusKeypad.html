@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<style type="text/css">
+.wrapper {position:relative; width:300px; height:600px; border:1px solid #000}
+ul {padding:0; margin:0}
+p, li {background:yellow; padding:50px 0; margin:0; border-bottom:1px solid blue; list-style:none}
+h1 {font-size:14px; margin-bottom:0}
+h2 {font-size:13px; margin-bottom:0}
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* test */
+google_ad_slot = "6764832967";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<hr>
+
+<h1>폼요소에 포커스되어 있고 가상키보드 활성화시 스크롤이슈 해결</h1>
+<h2>input에 포커스를 주고 브라우저 높이를 조정해보세요.</h2>
+<div id="wrapper" class="wrapper">
+	<div style="width:100%">
+		<p>컨텐츠</p>
+		<p><input type="text"></p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p><input type="text"></p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p><input type="text"></p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+		<p><input type="text"></p>
+		<p>컨텐츠</p>
+		<p>컨텐츠</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="iscroll.js"></script>
+<script type="text/javascript">
+
+//input 포커스시 스크롤링 (키패드높이를 인식하지 못할경우 처리)
+function loaded(){
+	var iscroll = new iScroll("wrapper", {
+		useTransform:false,
+		onBeforeScrollStart: function (e) {
+			var target = e.target;
+			while (target.nodeType != 1) target = target.parentNode;
+			
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') e.preventDefault();
+		},
+		onBeforeScrollEnd: function (e) {
+			var target = e.target;
+			while (target.nodeType != 1) target = target.parentNode;
+			
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA'){
+			}else{
+				var scrollPosY = -1 * (target.offsetTop - 50);
+				target.focus()
+				setTimeout(function(){ iscroll.scrollTo(0, scrollPosY, 200) }, 500);
+			}
+		},
+		onRefresh: function(){
+			//키패드 활성화시 onRefresh 이벤트가 발생하며, wrapper의 높이를 재설정하면 됩니다.
+			wrapper.style.height = window.innerHeight-100+"px"
+		}
+	})
+}
+document.addEventListener('DOMContentLoaded', loaded, false)
+
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35689154-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
