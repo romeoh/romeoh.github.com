@@ -2,22 +2,35 @@
 layout: default
 ---
 
-<div class="home">
+{% for post in paginator.posts %}
 
-  <h1 class="page-heading">Posts</h1>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <div class="main-content" itemprop="articleBody">
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+  <header class="post-header">
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><h1 class="post-title" itemprop="name headline">  {{ post.title }}</h1> </a>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </header>
+
+    {{ post.content }}
+
+ <p class="post-meta" style="text-align: right; color: rgb(152,152,152);"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ post.author }}</span></span>{% endif %} • <a href="{{ post.url | prepend: site.baseurl }}">permalink</a></p>
+
+  </div>
+
+</article>
+
+{% endfor %}
+
+<div class="pagination" style="text-align: center;">
+
+  {% if paginator.next_page %}
+    <h2><a href="{{ paginator.next_page_path }}" class="next">- more posts -</a></h2>
+  {% endif %}
+
+  {% if paginator.previous_page %}
+    <h2><a href="{{ paginator.previous_page_path }}" class="previous">- previous page -</a></h2>
+  {% endif %}
 
 </div>

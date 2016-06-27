@@ -1,25 +1,16 @@
-# romeoh
-======
-다음맵 : http://romeoh.github.com/daumMaps/
+A [Jekyll](https://jekyllrb.com/) blog template made for simple, readable snippets of your brain drippings.
 
-네이버맵 : http://romeoh.github.com/naverMaps/
+[DEMO](http://adueck.github.io/cayman-blog/)
 
-구글맵 : http://romeoh.github.com/googleMaps/
+To get this going follow these simple steps:
 
-카메라 제어 : http://romeoh.github.com/getUserMedia/
+1. Fork, clone, or download the repository
+2. Edit <code>_config.yml</code>
+3. If you want, swap `img/cover.jpg` for your own header image
+3. Fill up the `_posts` folder with whatever you want to say
+4. run <code>jekyll build</code> and then <code>jekyll serve</code>  
+note: This will require the `jekyll-paginate` gem `$ gem install jekyll-paginate`
 
-Twitter API : http://romeoh.github.com/twitterApi/
+You can easily host your blog for free on [GitHub Pages](https://pages.github.com/)
 
-Facebook API : http://romeoh.github.com/facebookApi/
-
-sns API : http://romeoh.github.com/snsApi/
-
-drag&drop API : http://romeoh.github.com/dragAndDrop/
-
-localStorage API : http://romeoh.github.com/localStorage/
-
-iscroll API : http://romeoh.github.com/iscroll/
-
-
-
- 
+I made this Jekyll theme by adapting and modifying the [Cayman Theme](https://github.com/jasonlong/cayman-theme) by [Jason Lang](https://github.com/jasonlong), which is licensed under a [Creative Commons Attribution 4.0 International license](http://creativecommons.org/licenses/by/4.0/).

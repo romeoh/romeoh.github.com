@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.3.2)
     activesupport (4.2.6)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -91,7 +90,6 @@ GEM
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
-    maruku (0.7.2)
     mercenary (0.3.6)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
@@ -103,16 +101,10 @@ GEM
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     pkg-config (1.1.7)
-    posix-spawn (0.3.11)
     public_suffix (1.5.3)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    rdiscount (2.2.0.1)
-    redcarpet (3.3.4)
     rouge (1.10.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
@@ -125,27 +117,13 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
   github-pages
-  jekyll
-  jekyll-coffeescript
-  jekyll-mentions
-  jekyll-redirect-from
-  jekyll-sass-converter
-  jekyll-sitemap
-  jemoji
-  kramdown
-  liquid
-  maruku
-  pygments.rb
-  rdiscount
-  redcarpet
+  jekyll-paginate
 
 BUNDLED WITH
    1.12.5
