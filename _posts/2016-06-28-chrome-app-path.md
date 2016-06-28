@@ -21,7 +21,7 @@ C:\Users\<User_Name>\AppData\Local\Google\Chrome\User Data\Default\Extensions
 
 크롬에서 [chrome://extensions/](chrome://extensions/) 에 접속하면 설치된 확장프로그램이 표시됩니다.
 
-<img src="/_upload/스크린샷_2016-06-28_오전_9_25_27.png">
+<img src="../_upload/스크린샷_2016-06-28_오전_9_25_27.png">
 
 id를 확인후 크롬 확장프로그램 폴더의 id 폴더 프로그램 소스가 있습니다.
 
